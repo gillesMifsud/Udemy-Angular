@@ -7,16 +7,21 @@ import {Ingredient} from '../../shared/ingredients.model';
   styleUrls: ['./shopping-edit.component.scss']
 })
 export class ShoppingEditComponent implements OnInit {
+
   @ViewChild('nameInput') nameInputRef: ElementRef;
   @ViewChild('amountInput') amountInputRef: ElementRef;
-  @Output() newIngredient = new EventEmitter<Ingredient>();
+  @Output() ingredientAdded = new EventEmitter<Ingredient>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  addIngredient(nameInput, amountInput) {
-    this.newIngredient.emit(new Ingredient(nameInput, amountInput));
-  }
+    onAddItem() {
+      const ingName = this.nameInputRef.nativeElement.value;
+      const ingNumber = this.amountInputRef.nativeElement.value;
+      const newingredient = new Ingredient(ingName, ingNumber);
+      this.ingredientAdded.emit(newingredient);
+    }
 
 }
