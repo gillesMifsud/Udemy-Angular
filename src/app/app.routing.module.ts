@@ -12,14 +12,6 @@ import {AuthGuard} from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/recipes', pathMatch: 'full'}, // Redirect only if the full path is empty
-    {
-        path: 'recipes', component: RecipesComponent, children: [
-            {path: '', component: RecipeStartComponent},
-            {path: 'new', component: RecipeEditComponent, canActivate: [AuthGuard]}, // Guard the route for logged in status
-            {path: ':id', component: RecipeDetailComponent},
-            {path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuard]},
-        ]
-    },
     {path: 'shopping-list', component: ShoppingListComponent},
     {path: 'register', component: SignupComponent},
     {path: 'login', component: SigninComponent},
