@@ -15,18 +15,19 @@ import {RecipesModule} from './recipes/recipes.module';
 import {SharedModule} from './shared/shared.module';
 import {ShoppingListModule} from './shopping-list/shopping-list.module';
 import {AuthModule} from './auth/auth.module';
+import {HomeComponent} from './home/home.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,
         HttpModule,
         BrowserAnimationsModule,
         AppRoutingModule,
-        RecipesModule,
         SharedModule,
         ShoppingListModule,
         AuthModule

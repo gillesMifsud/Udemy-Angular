@@ -2,9 +2,11 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
+import {HomeComponent} from './home/home.component';
 
 const appRoutes: Routes = [
-    {path: '', redirectTo: '/recipes', pathMatch: 'full'}, // Redirect only if the full path is empty
+    {path: '', component: HomeComponent},
+    {path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule'}, // Lazy loading
     {path: 'shopping-list', component: ShoppingListComponent},
 ];
 
